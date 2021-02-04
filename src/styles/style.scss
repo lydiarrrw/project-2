@@ -14,7 +14,7 @@ $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $light: $beige-light;
 $primary: rgb(248, 248, 248);
-$link: none;
+$link: white;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -55,4 +55,13 @@ $title-size: 80px;
   padding: 5px;
 
 }
+.card-content {
+ padding: 5px;
+ background-color: transparent;
+}
 
+.card .card-image,
+.card .card-image .image img {
+  height: 250px;
+  width: 200px;
+}

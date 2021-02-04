@@ -3,32 +3,23 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
 
-const Horror = () => {
+const Animation = () => {
   const [movies, updateMovies] = useState([])
   const [pages, updatePages] = useState([])
 
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27`)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16`)
 
       .then(data => {
-        const filterPoster = data.data.results.filter(poster => {
-          return poster.poster_path !== null
-          
-        })
-        updateMovies(filterPoster)
+        updateMovies(data.data.results)
         updatePages(data.data)
-        
       })
   }, [])
 
-  // const filteredPoster = data.data.results.filter(poster => {
-  //   return poster.poster_path
-console.log(movies)
-
  
   function newPage(pageno) {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageno}&with_genres=27`)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageno}&with_genres=16`)
       .then(data => {
         const filterPoster = data.data.results.filter(poster => {
           return poster.poster_path !== null
@@ -85,4 +76,4 @@ console.log(movies)
     </div>
   </section>
 }
-export default Horror
+export default Animation

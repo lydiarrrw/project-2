@@ -14,86 +14,65 @@ const Nav = () => {
 
   return <>
     <div className="navbar">
-      <div className="nav-start">
-        
-        <div className="navbar-brand">
-          LOGO
+      <div className="navbar-brand">
+        <div className="navbar-burger">
+        </div>
+      </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      <div className="navbar-menu">
+        <div className="navbar-start">
+        </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/' }}>HOME</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Horror' }}>Horror</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Comedy' }}>Comedy</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Animation' }}>Animation</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Drama' }}>Drama</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Family' }}>Family</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Thriller' }}>Thriller</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/SciFi' }}>Sci-Fi</Link>
+          </div>
+
+          <div className="navbar-item">
+            <Link className="button" to={{ pathname: '/project-2/Action' }}>Action</Link>
+          </div>
+
         </div>
 
-        <Link className="button" to={{
-          pathname: '/project-2/'
-        }}>
-          <div className="navbar-item">
-            Home
-          </div>
-        </Link>
-      
-        <Link className="button" to={{
-          pathname: '/project-2/Horror'
-        }}>
-          <div className="navbar-item">
-            Horror
-          </div>
-        </Link>
 
-        <Link className="button" to={{
-          pathname: '/project-2/Comedy'
-        }}>
-          <div className="navbar-item">
-            Comedy
-          </div>
-        </Link>
 
-        <Link className="button" to={{
-          pathname: '/project-2/Animation'
-        }}>
-          <div className="navbar-item">
-            Animation
-          </div>
-        </Link>
 
-        <Link className="button" to={{
-          pathname: '/project-2/Drama'
-        }}>
-          <div className="navbar-item">
-            Drama
-          </div>
-        </Link>
-
-        <Link className="button" to={{
-          pathname: '/project-2/Family'
-        }}>
-          <div className="navbar-item">
-            Family
-          </div>
-        </Link>
-
-        <Link className="button" to={{
-          pathname: '/project-2/Thriller'
-        }}>
-          <div className="navbar-item">
-            Thriller
-          </div>
-        </Link>
-
-        <Link className="button" to={{
-          pathname: '/project-2/Sci-Fi'
-        }}>
-          <div className="navbar-item">
-            Sci-Fi
-          </div>
-        </Link>
-
-        <Link className="button" to={{
-          pathname: '/project-2/Action'
-        }}>
-          <div className="navbar-item">
-            Action
-          </div>
-        </Link>
 
       </div>
     </div>
+
+
   </>
 
 }

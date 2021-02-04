@@ -24,9 +24,6 @@ const MoviePage = ({ match }) => {
 
   //console.log(reccomended)
 
-
-
-
   return <div>
     {/* <Rex id={id}/> */}
     <div>Name: {movie.name}</div>
