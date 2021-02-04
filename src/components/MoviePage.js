@@ -1,6 +1,6 @@
 import axios from 'axios'
-// import Rex from './Rex.js'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const MoviePage = ({ match }) => {
@@ -9,38 +9,52 @@ const MoviePage = ({ match }) => {
   const [reccomended, updateReccomended] = useState([])
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=0a895add9d901b3739275b20fb88282b&language=en-US`)
+    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.apikey}&language=en-US`)
       .then(({ data }) => {
         updateMovie(data)
-
       })
-    axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=abf84179d97e7021a8f667b0768e1330&language=en-US&page=1`)
+
+
+    axios.get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.apikey}&language=en-US&page=1`)
       .then(({ data }) => {
         updateReccomended(data.results)
 
       })
+  }, [id])
 
-  }, [])
+  //console.log(reccomended)
 
-  console.log(reccomended)
+
+
 
   return <div>
     {/* <Rex id={id}/> */}
-    <div>Name: {movie.overview}</div>
-    <div>Status: {movie.release_date}</div>
-    <div>Species: {movie.species}</div>
-    <img src={'https://image.tmdb.org§/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
+    <div>Name: {movie.name}</div>
+    <div>About: {movie.overview}</div>
+    <div>Release date: {movie.release_date}</div>
+    <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
 
     {reccomended.map((item) => {
-      return <div key={item.id}>
-        <div>Name: {item.overview}</div>
-        <div>Status: {item.release_date}</div>
-        <div>Species: {item.species}</div>
-        <img src={'https://image.tmdb.org§/t/p/w500' + item.backdrop_path} alt={item.title} height="400px" />
-      </div>
+      return <Link key={item.id} to={{
+        pathname: `/project-2/MoviePage/${item.id}`,
+        state: {
+          name: item.name
+        }
+    
+      }}>
+
+        <div>
+          
+          <div>Name: {item.name}</div>
+          <div>About: {item.overview}</div>
+          <div>Release date: {item.release_date}</div>
+          <img src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt={item.title} height="400px" />
+        </div>
+      </Link>
     })}
 
   </div>
+
 
 
 

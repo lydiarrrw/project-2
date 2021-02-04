@@ -3,37 +3,26 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
 
-
-//console.log(process.env.apikey)
-const Home = () => {
+const Horror = () => {
   const [movies, updateMovies] = useState([])
   const [pages, updatePages] = useState([])
 
 
   useEffect(() => {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27`)
+
       .then(data => {
         updateMovies(data.data.results)
         updatePages(data.data)
       })
   }, [])
 
-  //console.log(movies)
-  //console.log(pages)
-
+ 
   function newPage(pageno) {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageno}`)
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageno}&with_genres=27`)
       .then(data => {
         updateMovies(data.data.results)
       })
-  }
-
-  function newGenre(genre) {
-    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.apikey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`)
-      .then(data => {
-        updateMovies(data.data.results)
-      })
-
   }
 
   function handleClick(data) {
@@ -79,9 +68,9 @@ const Home = () => {
       })}
 
 
+
       {/* react-paginate from https://www.npmjs.com/package/react-paginate */}
     </div>
   </section>
 }
-
-export default Home
+export default Horror
