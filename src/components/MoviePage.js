@@ -33,42 +33,51 @@ const MoviePage = ({ match }) => {
           <p>{movie.vote_average}/10</p>
           <p>Released: {movie.release_date}</p>
         </div>
-        <div className="bottom-left">
-        <div className="container">
-            <div className="columns is-multiline is-mobile">
-              {reccomended.map((item) => {
-                return <Link key={item.id} to={{
-                  pathname: `/project-2/MoviePage/${item.id}`,
-                  state: {
-                    name: item.name
-                  }
-                }}>
+        <div>
+          <p className="subtitle">REXOMMENDATIONS FROM REXFLIX</p>
+        </div>
 
-                  <div className="card">
-                    <div className="card-content">
-                      <div className="media">
-                        <div className="media-content">
+        <div className="bottom-left">
+          <div className="reccomendations">
+            <div className="container">
+              <div className="columns is-multiline">
+                {reccomended.map((item) => {
+                  return <div key={item.id}>
+                    <Link  to={{
+                      pathname: `/project-2/MoviePage/${item.id}`,
+                      state: {
+                        name: item.name
+                      }
+                    }}>
+
+                      <div className="card">
+                        <div className="card-content">
+                          {/* <div className="media">
+                          <div className="media-content"> */}
                         </div>
                       </div>
                       <div className="card-image">
-                        <div className="image is-4by5">
-                          <img className="another" src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt={item.title} height="400px" />
+                        <div className="image is-128x128">
+                          <img className="another" src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt={item.title}/>
                         </div>
+                        {/* </div>
+                      </div> */}
                       </div>
-                    </div>
+                    </Link>
                   </div>
-                </Link>
-
-              })}
+                })}
+              </div>
             </div>
           </div>
+
+
         </div>
 
       </div>
 
       <div className="right-box">
-        <div className="image">
-        <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
+        <div className="image-poster">
+          <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
         </div>
 
       </div>

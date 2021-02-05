@@ -34,6 +34,7 @@ const App = () => (
       <Route exact path="/project-2/SciFi" component={science} />
       <Route exact path="/project-2/Action" component={Action} />
     </Switch>
+    <footer>Created by <a href="https://www.linkedin.com/in/jess-karia-4104351bb/">Jess Karia</a> and <a href="https://www.linkedin.com/in/lydiaawood/">Lydia Wood </a>2021</footer>
   </BrowserRouter>
 )
 

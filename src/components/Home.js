@@ -78,9 +78,6 @@ const Home = () => {
               <div className="card-content">
                 <div className="media">
                   <div className="media-content">
-                    {/* <div key={movie.id}>
-                        <h3 className="title is-5">{movie.title}</h3>
-                      </div> */}
                   </div>
                 </div>
                 <div className="card-image">
