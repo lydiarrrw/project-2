@@ -24,36 +24,57 @@ const MoviePage = ({ match }) => {
 
   //console.log(reccomended)
 
-  return <div>
-    {/* <Rex id={id}/> */}
-    <div>Name: {movie.name}</div>
-    <div>About: {movie.overview}</div>
-    <div>Release date: {movie.release_date}</div>
-    <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
-
-    {reccomended.map((item) => {
-      return <Link key={item.id} to={{
-        pathname: `/project-2/MoviePage/${item.id}`,
-        state: {
-          name: item.name
-        }
-    
-      }}>
-
-        <div>
-          
-          <div>Name: {item.name}</div>
-          <div>About: {item.overview}</div>
-          <div>Release date: {item.release_date}</div>
-          <img src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt={item.title} height="400px" />
+  return <section className="movie-container">
+    <div className="rex-box">
+      <div className="left-box">
+        <div className="top-left-box">
+          <p className="title">{movie.title}</p>
+          <p className="text">{movie.overview}</p>
+          <p>{movie.vote_average}/10</p>
+          <p>Released: {movie.release_date}</p>
         </div>
-      </Link>
-    })}
+        <div className="bottom-left">
+        <div className="container">
+            <div className="columns is-multiline is-mobile">
+              {reccomended.map((item) => {
+                return <Link key={item.id} to={{
+                  pathname: `/project-2/MoviePage/${item.id}`,
+                  state: {
+                    name: item.name
+                  }
+                }}>
 
-  </div>
+                  <div className="card">
+                    <div className="card-content">
+                      <div className="media">
+                        <div className="media-content">
+                        </div>
+                      </div>
+                      <div className="card-image">
+                        <div className="image is-4by5">
+                          <img className="another" src={'https://image.tmdb.org/t/p/w500' + item.poster_path} alt={item.title} height="400px" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
 
+              })}
+            </div>
+          </div>
+        </div>
 
+      </div>
 
+      <div className="right-box">
+        <div className="image">
+        <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="400px" />
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 
 
 
@@ -61,7 +82,7 @@ const MoviePage = ({ match }) => {
 export default MoviePage
 
 
-// export default function Character({ match }) {
+// export default function Character({match}) {
 //   const id = match.params.id
 
 //   const [character, updateCharacter] = useState({})

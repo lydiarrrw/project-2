@@ -34,45 +34,59 @@ const Comedy = () => {
     newPage(data.selected)
   }
 
-  return <section>
-    <ReactPaginate
-      previousLabel={'previous'}
-      nextLabel={'next'}
-      breakLabel={'...'}
-      breakClassName={'add class name to change how it looks'}
-      pageCount={pages.total_pages}
-      pageClassName={'pageclasses'}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={3}
-      onPageChange={handleClick}
-      containerClassName={'pagination'}
-    // subContainerClassName={'pages pagination'} - ?
-    // activeClassName={'active'} -?
-    />
-    {/* <button onClick={((event) => newPage(horror))}>2</button> */}
-    <div>
+  return <section className="page-container">
+    <div className="page-nation">
+      <ReactPaginate
+        previousLabel={'previous'}
+        nextLabel={'next'}
+        breakLabel={'...'}
+        breakClassName={'add class name to change how it looks'}
+        pageCount={pages.total_pages}
+        pageClassName={'pageclasses'}
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={2}
+        initialPage={4}
+        onPageChange={handleClick}
+        containerClassName={'pagination'}
+      // subContainerClassName={'pages pagination'} - ?
+      // activeClassName={'active'} -?
+      />
+      {/* <button onClick={((event) => newPage(horror))}>2</button> */}
+
+    </div>
+
+    <div className="container">
+      {/* <div className="columns is-multiline is-mobile"> */}
       {movies.map((movie) => {
         // console.log(movie.poster_path)
-        return <Link key={movie.id} to={{
-          pathname: `/project-2/MoviePage/${movie.id}`,
-          state: {
-            name: movie.name
-          }
-        }}>
-
-          <div key={movie.id}>
-            <h3>{movie.title}</h3>
-            <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} height="200px" />
-
-          </div>
-
-        </Link>
-
+        return <div key={movie.id}>
+          <Link key={movie.id} to={{
+            pathname: `/project-2/MoviePage/${movie.id}`,
+            state: {
+              name: movie.name
+            }
+          }}>
+            <div className="card">
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-content">
+                    {/* <div key={movie.id}>
+                        <h3 className="title is-5">{movie.title}</h3>
+                      </div> */}
+                  </div>
+                </div>
+                <div className="card-image">
+                  <div className="image is-4by5">
+                    <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
       })}
-
-
-
       {/* react-paginate from https://www.npmjs.com/package/react-paginate */}
+      {/* </div> */}
     </div>
   </section>
 }

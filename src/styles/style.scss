@@ -1,16 +1,18 @@
 @charset "utf-8";
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+// @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap');
 
 // Set your brand colors
 $purple: #ffffff;
-$pink: #c50424;
+$pink: #FF0000;
 $brown: #ffffff;
 $beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+$darker-red: #FF0000;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: 'Bebas Neue', cursive;
+$family-paragraph: 'Montserrat', sans-serif;
 $grey-dark: $brown;
 $light: $beige-light;
 $primary: rgb(248, 248, 248);
@@ -18,8 +20,9 @@ $link: white;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
+
 // Update some of Bulma's component variables
-$body-background-color: #b605ad;
+$body-background-color: #0f0f0f;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -28,40 +31,129 @@ $title-size: 80px;
 // Import what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
 
-.hero-body {
-  background-color: #923cb5;
-  background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%);
-  font-family: "Orbitron", sans-serif;
-}
+// .hero-body {
+//   background-color: $body-background-color;
+//   background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%);
+//   font-family: 'Bebas Neue', cursive;
+// }
 
 
-.pagination {
-  background-color: lightblue;
-  // list-style-type: none;
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
+
+.page-nation {
+  margin: 20px;
+  color: #FF0000;
+}
+
+.container {
+  display: flex;
+  width: 99%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 
 .pageclasses {
-  color: red;
+  color: rgb(155, 146, 146);
 }
 
+.burger {
+  margin: 20px;
+  background-size: 100%;
+  cursor: grabbing;
+}
+
+.navbar-item img {
+  max-height: 5.75rem;
+}
+
+
 .navbar {
-  background-color: #fe5000;
+  background-color: $darker-red;
   display: flex;
+  height: 100px;
   flex-direction: row;
 }
 
+
+
+.mob-menu {
+  font-size: 50px;
+}
+
+.menu-list {
+  width: 100%;
+  text-align: center;
+}
+
 .navbar-item {
-  background-color: $body-background-color;
+  background-color: $darker-red;
   padding: 5px;
 
 }
 .card-content {
  padding: 5px;
- background-color: transparent;
+ background-color: $body-background-color;
+ border: none;
 }
 
-.card .card-image,
-.card .card-image .image img {
+.media {
+  margin: 0px;
+}
+
+.card .card-image {
   height: 250px;
   width: 200px;
 }
+
+.dropdown {
+  position: fixed;
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  z-index: 50;
+}
+
+.card .card-image .another {
+  height: 90px;
+  width: 65px;
+}
+
+.movie-container {
+  margin: 20px;
+  padding: 20px;
+}
+
+.rex-box {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.tile {
+  color: $darker-red;
+  background-color: $body-background-color;
+}
+
+.text {
+  font-family: 'Montserrat', sans-serif;;
+}
+
+.rexHeader {
+  font-size: 70px;
+  padding-left: 10px;
+}
+.navbar-burger, a {
+  width: 100px;
+  height: 100px;
+  padding: 5px; 
+}
+
+
+
+
