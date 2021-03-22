@@ -6,6 +6,8 @@
 
 This was the second project of the Software Engineering Immersive course with GA. It was a 48-hr pair programming hackathon, challenging us to work together to create a single page app. This was my first paired project and I really enjoyed it.
 
+Ypu can find a deployed version of this project here: [REXFLIX](https://lydiarrrw.github.io/project-2/)
+
 ![](./rexflixgif.gif)
 
 ## The Brief
